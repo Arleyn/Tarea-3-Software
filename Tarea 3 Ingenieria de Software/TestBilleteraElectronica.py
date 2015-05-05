@@ -46,6 +46,11 @@ class Test(unittest.TestCase):
         Arleyn.recargar(100,'27/12/1992','01')
         self.assertRaises(Exception, lambda: Arleyn.consumir(150,'28/12/1992','02'))
         
-    def testSaldoConsumirNegativa(self):
+    def testSaldoConsumoNegativo(self):
         Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
         self.assertRaises(Exception, lambda: Arleyn.consumir(-150,'28/12/1992','02'))
+        
+    def testSaldoConsumoNegativo2(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
+        Arleyn.recargar(100,'27/12/1992','01')
+        self.assertRaises(Exception, lambda: Arleyn.consumir(-50,'28/12/1992','02'))
