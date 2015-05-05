@@ -22,5 +22,7 @@ class BilleteraElectronica(object):
             return self._saldo;
         
     def consumir(self,cantidad,fecha,id_estacionamiento):
+            if self._saldo < cantidad:
+                raise Exception("No tiene saldo suficiente");
             self._saldo -= cantidad;
             return self._saldo;
