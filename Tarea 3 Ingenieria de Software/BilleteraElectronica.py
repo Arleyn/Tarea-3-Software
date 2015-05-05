@@ -12,3 +12,7 @@ class BilleteraElectronica(object):
         self._apellido = apellido
         self._CI = CI;
         self._saldo = 0;
+        
+    def saldo(self):
+        print(self._saldo);
+        return self._saldo;
