@@ -23,3 +23,9 @@ class Test(unittest.TestCase):
         Arleyn.recargar(100,'27/12/1992','01');
         saldo = Arleyn.recargar(550,'27/12/1992','01');
         self.assertEqual(650,saldo);
+        
+    def testConsumirCredito(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        Arleyn.recargar(100,'27/12/1992','01');
+        saldo = Arleyn.consumir(50,'28/12/1992','02')
+        self.assertEqual(50,saldo);
