@@ -58,3 +58,7 @@ class Test(unittest.TestCase):
     def testRecargar0(self):
         Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
         self.assertRaises(Exception, lambda: Arleyn.recargar(0,'28/12/1992','02'))
+        
+    def testConsumir0(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        self.assertRaises(Exception, lambda: Arleyn.consumir(0,'28/12/1992','02'))
