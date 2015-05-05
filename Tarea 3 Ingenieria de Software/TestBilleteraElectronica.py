@@ -36,3 +36,7 @@ class Test(unittest.TestCase):
         Arleyn.consumir(50,'28/12/1992','02')
         saldo = Arleyn.consumir(45,'28/12/1992','02')
         self.assertEqual(5,saldo);
+        
+    def testSinSaldo(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
+        self.assertRaises(Exception, lambda: Arleyn.consumir(50,'28/12/1992','02'))
