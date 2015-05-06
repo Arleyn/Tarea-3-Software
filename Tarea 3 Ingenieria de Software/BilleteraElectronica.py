@@ -11,6 +11,7 @@ class DatosCreditos(object):
         
     def Almacenar(self,cantidad,fecha,identificar):
         self._listas_recargas.append((cantidad,fecha,identificar));
+        return self._listas_recargas
 
 class DatosDebitos(object):
     def __init__(self):
@@ -50,3 +51,7 @@ class BilleteraElectronica(object):
             self._saldo -= cantidad;
             self._Consumos.Almacenar(cantidad,fecha,id_estacionamiento);
             return self._saldo;
+        
+Arleyn = BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+Arleyn.saldo()
+Arleyn.recargar(100,'27/12/1992',10);
