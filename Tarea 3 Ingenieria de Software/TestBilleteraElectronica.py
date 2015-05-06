@@ -92,3 +92,11 @@ class Test(unittest.TestCase):
         Arleyn.recargar(20,'04/08/1993','07');
         numRecargas = len(Arleyn._Creditos._listas_recargas)
         self.assertEqual(3,numRecargas);
+        
+    def testUsoListaRecarga(self):
+        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin.recargar(400,'14/12/1991','05');
+        Edwin.recargar(100,'27/12/1993','02');
+        Edwin.recargar(250,'24/12/1995','08');
+        numRecargas = Edwin._Creditos._listas_recargas[1]
+        self.assertEqual((100,'27/12/1993','02'),numRecargas);
