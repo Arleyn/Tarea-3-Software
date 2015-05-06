@@ -54,3 +54,25 @@ class Test(unittest.TestCase):
         Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
         Arleyn.recargar(100,'27/12/1992','01')
         self.assertRaises(Exception, lambda: Arleyn.consumir(-50,'28/12/1992','02'))
+        
+    def testRecargar0(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        self.assertRaises(Exception, lambda: Arleyn.recargar(0,'28/12/1992','02'))
+        
+    def testConsumir0(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        self.assertRaises(Exception, lambda: Arleyn.consumir(0,'28/12/1992','02'))
+        
+    def testConsumir2(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        Arleyn.recargar(100,'28/12/1992','02')
+        self.assertRaises(Exception, lambda: Arleyn.consumir(0,'28/12/1992','02'))
+        
+    def testSaldoRecargaNegativa(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
+        self.assertRaises(Exception, lambda: Arleyn.recargar(-150,'28/12/1992','02'))
+        
+    def testSaldoRecargaNegativa2(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704")
+        Arleyn.recargar(100,'27/12/1992','01')
+        self.assertRaises(Exception, lambda: Arleyn.recargar(-150,'28/12/1992','02'))
