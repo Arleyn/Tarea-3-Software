@@ -51,7 +51,3 @@ class BilleteraElectronica(object):
             self._saldo -= cantidad;
             self._Consumos.Almacenar(cantidad,fecha,id_estacionamiento);
             return self._saldo;
-        
-Arleyn = BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
-Arleyn.saldo()
-Arleyn.recargar(100,'27/12/1992',10);
