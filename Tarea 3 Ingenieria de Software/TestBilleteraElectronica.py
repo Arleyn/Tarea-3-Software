@@ -115,3 +115,10 @@ class Test(unittest.TestCase):
         Edwin.recargar(400,'14/12/1991','05');
         numRecargas = len(Edwin._Creditos._listas_recargas)
         self.assertEqual(1,numRecargas);
+        
+    def testListaConsumoUnElemento(self):
+        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin.recargar(400,'14/12/1991','05');
+        Edwin.consumir(100,'27/12/1993','02');
+        numConsumos = len(Edwin._Consumos._listas_consumos)
+        self.assertEqual(1,numConsumos);
