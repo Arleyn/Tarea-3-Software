@@ -5,6 +5,13 @@ Created on 3/5/2015
 '''
 #-*- coding:UTF-8 -*-
 
+class DatosCreditos(object):
+    def __init__(self):
+        self._listas_recargas = [];
+        
+    def Almacenar(self,cantidad,fecha,identificar):
+        self._listas_recargas.append((cantidad,fecha,identificar));
+
 class DatosDebitos(object):
     def __init__(self):
         self._listas_consumos = [];
@@ -21,6 +28,7 @@ class BilleteraElectronica(object):
         self._CI = CI;
         self._saldo = 0;
         self._Consumos = DatosDebitos();
+        self._Creditos = DatosCreditos();
         
     def saldo(self):
         print(self._saldo);
@@ -31,6 +39,7 @@ class BilleteraElectronica(object):
             raise Exception("La cantidad a recargar tiene que se mayor a 0");
         else:
             self._saldo += cantidad;
+            self._Creditos.Almacenar(cantidad,fecha,id_estacionamiento);
             return self._saldo;
         
     def consumir(self,cantidad,fecha,id_estacionamiento):
