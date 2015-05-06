@@ -100,3 +100,18 @@ class Test(unittest.TestCase):
         Edwin.recargar(250,'24/12/1995','08');
         numRecargas = Edwin._Creditos._listas_recargas[1]
         self.assertEqual((100,'27/12/1993','02'),numRecargas);
+        
+    def testUsoListaConsumo(self):
+        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin.recargar(400,'14/12/1991','05');
+        Edwin.consumir(30,'14/12/1991','05');
+        Edwin.consumir(100,'27/12/1993','02');
+        Edwin.consumir(250,'24/12/1995','08');
+        numConsumo = Edwin._Consumos._listas_consumos[2]
+        self.assertEqual((250,'24/12/1995','08'),numConsumo);
+        
+    def testListaRecargasUnElemento(self):
+        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin.recargar(400,'14/12/1991','05');
+        numRecargas = len(Edwin._Creditos._listas_recargas)
+        self.assertEqual(1,numRecargas);
