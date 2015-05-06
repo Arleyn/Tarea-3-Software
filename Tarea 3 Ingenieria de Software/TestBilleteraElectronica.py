@@ -109,3 +109,9 @@ class Test(unittest.TestCase):
         Arleyn.recargar(100,'28/12/1992','02')
         saldo = Arleyn.consumir(Decimal(99.5),'28/12/1992','02')
         self.assertEqual(Decimal(0.5),saldo);
+        
+    def testRecargoConsumoExacto(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn.recargar(100,'28/12/1992','02')
+        saldo = Arleyn.consumir(100,'28/12/1992','02')
+        self.assertEqual(0,saldo);
