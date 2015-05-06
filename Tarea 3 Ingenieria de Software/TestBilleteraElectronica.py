@@ -103,3 +103,9 @@ class Test(unittest.TestCase):
         Arleyn.recargar(100,'28/12/1992','02')
         saldo = Arleyn.consumir(Decimal('99.9'),'28/12/1992','02')
         self.assertEqual(Decimal('0.1'),saldo);
+        
+    def testConsumirDecimales2(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        Arleyn.recargar(100,'28/12/1992','02')
+        saldo = Arleyn.consumir(Decimal(99.5),'28/12/1992','02')
+        self.assertEqual(Decimal(0.5),saldo);
