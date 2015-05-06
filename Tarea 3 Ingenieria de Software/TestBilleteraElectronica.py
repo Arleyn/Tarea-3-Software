@@ -92,3 +92,8 @@ class Test(unittest.TestCase):
         Arleyn.recargar(20,'04/08/1993','07');
         numRecargas = len(Arleyn._Creditos._listas_recargas)
         self.assertEqual(3,numRecargas);
+        
+    def testRecargarDecimales(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica("001","Arleyn","Goncalves","21467704");
+        saldo = Arleyn.recargar(10.6,'28/12/1992','02')
+        self.assertEqual(10.6,saldo);

@@ -31,7 +31,6 @@ class BilleteraElectronica(object):
         self._Creditos = DatosCreditos();
         
     def saldo(self):
-        print(self._saldo);
         return self._saldo;
     
     def recargar(self,cantidad,fecha,id_estacionamiento):
