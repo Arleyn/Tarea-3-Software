@@ -115,3 +115,9 @@ class Test(unittest.TestCase):
         Arleyn.recargar(100,'28/12/1992',2)
         saldo = Arleyn.consumir(100,'28/12/1992',3)
         self.assertEqual(0,saldo);
+        
+    def testListaConsumo(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn.recargar(400,'27/12/1992',10)
+        self.assertEqual([(400,'27/12/1992',10)],Arleyn._Creditos._listas_recargas);
+    
