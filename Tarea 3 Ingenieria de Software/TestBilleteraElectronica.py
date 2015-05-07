@@ -134,30 +134,36 @@ class Test(unittest.TestCase):
         self.assertEqual(0,numConsumos);
 
     def testRecargarDecimales(self):
-        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
         saldo = Arleyn.recargar(10.6,'28/12/1992',10)
         self.assertEqual(10.6,saldo);
         
     def testConsumirDecimales(self):
-        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
         Arleyn.recargar(100,'28/12/1992',10)
         saldo = Arleyn.consumir(Decimal('99.9'),'28/12/1992',11)
         self.assertEqual(Decimal('0.1'),saldo);
         
     def testConsumirDecimales2(self):
-        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
         Arleyn.recargar(100,'28/12/1992',10)
         saldo = Arleyn.consumir(Decimal(99.5),'28/12/1992',10)
         self.assertEqual(Decimal(0.5),saldo);
         
     def testRecargoConsumoExacto(self):
-        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
         Arleyn.recargar(100,'28/12/1992',2)
         saldo = Arleyn.consumir(100,'28/12/1992',3)
         self.assertEqual(0,saldo);
         
     def testListaConsumo(self):
-        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Arleyn","Goncalves",21467704);
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
         Arleyn.recargar(400,'27/12/1992',10)
         self.assertEqual([(400,'27/12/1992',10)],Arleyn._Creditos._listas_recargas);
+        
+    def testRecargoConsumoExacto(self):
+        Arleyn = BilleteraElectronica.BilleteraElectronica(1,"Roberto","Núñez",15973648);
+        Arleyn.recargar(100,'28/12/2013',2)
+        saldo = Arleyn.consumir(100,'28/12/2014',3)
+        self.assertEqual(0,saldo);
         
