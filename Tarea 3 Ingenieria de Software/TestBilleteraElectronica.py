@@ -94,42 +94,42 @@ class Test(unittest.TestCase):
         self.assertEqual(3,numRecargas);
         
     def testUsoListaRecarga(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
-        Edwin.recargar(400,'14/12/1991','05');
-        Edwin.recargar(100,'27/12/1993','02');
-        Edwin.recargar(250,'24/12/1995','08');
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
+        Edwin.recargar(400,'14/12/1991',5);
+        Edwin.recargar(100,'27/12/1993',2);
+        Edwin.recargar(250,'24/12/1995',8);
         numRecargas = Edwin._Creditos._listas_recargas[1]
-        self.assertEqual((100,'27/12/1993','02'),numRecargas);
+        self.assertEqual((100,'27/12/1993',2),numRecargas);
         
     def testUsoListaConsumo(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
-        Edwin.recargar(400,'14/12/1991','05');
-        Edwin.consumir(30,'14/12/1991','05');
-        Edwin.consumir(100,'27/12/1993','02');
-        Edwin.consumir(250,'24/12/1995','08');
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
+        Edwin.recargar(400,'14/12/1991',5);
+        Edwin.consumir(30,'14/12/1991',5);
+        Edwin.consumir(100,'27/12/1993',2);
+        Edwin.consumir(250,'24/12/1995',8);
         numConsumo = Edwin._Consumos._listas_consumos[2]
-        self.assertEqual((250,'24/12/1995','08'),numConsumo);
+        self.assertEqual((250,'24/12/1995',8),numConsumo);
         
     def testListaRecargasUnElemento(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
-        Edwin.recargar(400,'14/12/1991','05');
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
+        Edwin.recargar(400,'14/12/1991',5);
         numRecargas = len(Edwin._Creditos._listas_recargas)
         self.assertEqual(1,numRecargas);
         
     def testListaConsumoUnElemento(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
-        Edwin.recargar(400,'14/12/1991','05');
-        Edwin.consumir(100,'27/12/1993','02');
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
+        Edwin.recargar(400,'14/12/1991',5);
+        Edwin.consumir(100,'27/12/1993',2);
         numConsumos = len(Edwin._Consumos._listas_consumos)
         self.assertEqual(1,numConsumos);
         
     def testListaRecargasVacia(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
         numRecargas = len(Edwin._Creditos._listas_recargas)
         self.assertEqual(0,numRecargas);
         
     def testListaConsumoVacia(self):
-        Edwin = BilleteraElectronica.BilleteraElectronica("001","Edwin","Murillo","20132170");
+        Edwin = BilleteraElectronica.BilleteraElectronica(1,"Edwin","Murillo",20132170);
         numConsumos = len(Edwin._Consumos._listas_consumos)
         self.assertEqual(0,numConsumos);
 
